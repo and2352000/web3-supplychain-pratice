@@ -32,23 +32,23 @@ contract DistributorRole {
 
     // Define a function 'addDistributor' that adds this role
     function addDistributor(address account) public onlyDistributor {
-      _addDistributor(account)
+      _addDistributor(account);
     }
 
     // Define a function 'renounceDistributor' to renounce this role
     function renounceDistributor() public {
-      _removeDistributor(msg.sender)
+      _removeDistributor(msg.sender);
     }
 
     // Define an internal function '_addDistributor' to add this role, called by 'addDistributor'
     function _addDistributor(address account) internal {
       distributor.add(account);
-      emit DistributorAdded(account)
+      emit DistributorAdded(account);
     }
 
     // Define an internal function '_removeDistributor' to remove this role, called by 'removeDistributor'
     function _removeDistributor(address account) internal {
       distributor.remove(account);
-      emit DistributorRemoved(account)
+      emit DistributorRemoved(account);
     }
 }

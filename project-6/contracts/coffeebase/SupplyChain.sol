@@ -8,7 +8,6 @@ import "../coffeeaccesscontrol/RetailerRole.sol";
 
 // Define a contract 'Supplychain'
 contract SupplyChain is
-    Ownable,
     ConsumerRole,
     DistributorRole,
     FarmerRole,
@@ -177,7 +176,7 @@ contract SupplyChain is
         Item memory newItem = Item({
             sku: sku,
             upc: _upc,
-            ownerID: msg.sender,
+            ownerID: _originFarmerID,
             originFarmerID: _originFarmerID,
             originFarmName: _originFarmName,
             originFarmInformation: _originFarmInformation,
@@ -186,16 +185,17 @@ contract SupplyChain is
             productID: _upc + sku,
             productNotes: _productNotes,
             productPrice: 0,
-            itemState: defaultState
-            //  distributorID:, // Metamask-Ethereum address of the Distributor
-            //  retailerID:, // Metamask-Ethereum address of the Retailer
-            //  consumerID:, // Metamask-Ethereum address of the Consumer
+            itemState: defaultState,
+            distributorID: address(0),
+            retailerID: address(0),
+            consumerID: address(0)
         });
         items[_upc] = newItem;
 
         // Increment sku
         sku = sku + 1;
         // Emit the appropriate event
+       emit Harvested(_upc);
     }
 
     // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
@@ -330,17 +330,17 @@ contract SupplyChain is
         )
     {
         // Assign values to the 8 parameters
+        Item memory item = items[_upc];
 
         return (
-            items[_upc].sku,
-            items[_upc].upc,
-            items[_upc].ownerID,
-            items[_upc].originFarmerID,
-            items[_upc].originFarmName,
-            items[_upc].originFarmInformation,
-            items[_upc].originFarmLatitude,
-            items[_upc].originFarmLongitude,
-
+            item.sku,
+            item.upc,
+            item.ownerID,
+            item.originFarmerID,
+            item.originFarmName,
+            item.originFarmInformation,
+            item.originFarmLatitude,
+            item.originFarmLongitude
         );
     }
 
@@ -361,18 +361,17 @@ contract SupplyChain is
         )
     {
         // Assign values to the 9 parameters
-
+        Item memory item = items[_upc];
         return (
-            items[_upc].sku,
-            items[_upc].upc,
-            items[_upc].productID,
-            items[_upc].productNotes,
-            items[_upc].productPrice,
-            uint256(items[_upc].itemState),
-            items[_upc].distributorID,
-            items[_upc].retailerID,
-            items[_upc].consumerID,
-
+            item.sku,
+            item.upc,
+            item.productID,
+            item.productNotes,
+            item.productPrice,
+            uint256(item.itemState),
+            item.distributorID,
+            item.retailerID,
+            item.consumerID
         );
     }
 }
