@@ -1386,15 +1386,21 @@
       "address": "0xa7604Bb333061564a5CeA1D32703Fe4Ef59D5e88",
       "transactionHash": "0x7694edcd6b11505d86affd56d517f34048eefaaa513a923d878c29b83bd79e34"
     },
+    "1377": {
+      "events": {},
+      "links": {},
+      "address": "0x5A21A892A5D3E9e0eD7310Ed43e17a15fFeBe1e6",
+      "transactionHash": "0x3c2e3da6230653c4fec187053b4c7433d3d4f56b7bb60c1963cb6c66f0118029"
+    },
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x9BB4BA369F6F2771FcAcaE468AFE200C2eb61E29",
-      "transactionHash": "0x2cc623455ec38525fde94b25cd22adb4706d139c029f9ee0b9f9d6bc8e4e1136"
+      "address": "0x3950360334fDFcDDbE72F87B49bdec4bA7691fBd",
+      "transactionHash": "0x4bb6b712a7720fbee6ea6d3366ec19be196e9dd769ad83d3b1d69e3f5cd07fdd"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2022-01-11T15:59:32.626Z",
+  "updatedAt": "2022-01-11T17:42:51.381Z",
   "devdoc": {
     "methods": {}
   },

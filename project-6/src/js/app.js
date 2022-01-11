@@ -175,13 +175,13 @@ App = {
                 App.originFarmInformation, 
                 App.originFarmLatitude, 
                 App.originFarmLongitude, 
-                App.productNotes
-            );
+                App.productNotes,
+            {from: App.metamaskAccountID});
         }).then(function(result) {
             $("#ftc-item").text(result);
             console.log('harvestItem',result);
         }).catch(function(err) {
-            console.log(err.message);
+            console.error(err.message);
         });
     },
 
