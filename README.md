@@ -1,5 +1,11 @@
 # Supply chain & data auditing
 
+## Environment
+- Truffle: v5.0.2
+- Node v14.18.1
+## Contract
+- https://rinkeby.etherscan.io/address/0xa7604Bb333061564a5CeA1D32703Fe4Ef59D5e88
+
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
 The DApp User Interface when running should look like...
